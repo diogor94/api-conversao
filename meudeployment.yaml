@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: meudeployment
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: meudeployment
+  template:
+    metadata:
+      labels:
+        app: meudeployment
+    spec:
+      containers:
+        - name: meudeployment
+          image: diogor94/api-conversao:v1
+          ports:
+            - containerPort: 8080
